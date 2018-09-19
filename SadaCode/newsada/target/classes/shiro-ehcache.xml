@@ -1,0 +1,24 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd" updateCheck="false">
+	<!--diskStore：缓存数据持久化的目录 地址  -->
+	<!-- 
+　　指定二级缓存存放在磁盘上的位置，可以使用磁盘目录，也可以使用
+	Java System Property目录，
+	user.home是用户目录、
+	user.dir是用户当前工作目录、
+	java.io.tmpdir是默认临时文件路径 
+	java.io.tmpdir/shirocache
+　　-->
+	<diskStore path="java.io.tmpdir/shirocache"/>
+	<defaultCache 
+		maxElementsInMemory="10000" 
+		maxElementsOnDisk="10000000"
+		eternal="false" 
+		overflowToDisk="true" 
+		diskPersistent="true"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120" 
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+	</defaultCache>
+</ehcache>
