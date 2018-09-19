@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.dmego.domain.Role" table="Role">
+		<id name="id" type="string" column="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" type="string" column="name"/>
+		<property name="code" type="string" column="code"/>	
+		<property name="remark" type="string" column="remark"/>	
+		<property name="sort" type="string" column="sort"/>
+		<property name="deleted" type="string" column="deleted"/>
+		<property name="createtime" type="string" column="createtime"/>
+		<property name="updatetime" type="string" column="updatetime"/>
+		
+		<!-- 用户角色多对多关系  放弃维护外键,由用户维护-->
+		<set name="users" table="UserRole" inverse="true">
+			<key>
+				<column name="roleId"></column>
+			</key>
+			<many-to-many class="cn.dmego.domain.User" column="userId"></many-to-many>
+		</set>
+		<!-- 角色权限多对多关系 -->
+		<set name="popedoms" table="RolePopedom">
+			<key>
+				<column name="roleId"></column>
+			</key>
+			<many-to-many class="cn.dmego.domain.Popedom" column="authId"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>    

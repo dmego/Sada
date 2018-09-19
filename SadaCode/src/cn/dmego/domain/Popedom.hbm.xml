@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="cn.dmego.domain.Popedom" table="Popedom">
+		<id name="id" type="string" column="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" type="string" column="name"/>
+		<property name="levelCode" type="string" column="levelCode"/>		
+		<property name="code" type="string" column="code"/>
+		<property name="parentId" type="string" column="parentId"/>
+		<property name="url" type="string" column="url"/>
+		<property name="icon" type="string" column="icon"/>
+		<property name="functype" type="string" column="functype"/>		
+		<property name="queryId" type="string" column="queryId"/>
+		<property name="py" type="string" column="py"/>
+		<property name="pingyin" type="string" column="pingyin"/>
+		<property name="remark" type="string" column="remark"/>
+		<property name="deleted" type="string" column="deleted"/>
+		<property name="createtime" type="string" column="createtime"/>
+		<property name="updatetime" type="string" column="updatetime"/>
+		
+		<!-- 角色权限多对多关系 放弃外键维护,由角色维护-->	
+		<set name="roles" table="RolePopedom" inverse="true">
+			<key>
+				<column name="authId"></column>
+			</key>
+			<many-to-many class="cn.dmego.domain.Role" column="roleId"></many-to-many>
+		</set>
+	</class>
+		
+	
+	
+</hibernate-mapping>    

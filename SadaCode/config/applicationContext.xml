@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd    
+	http://www.springframework.org/schema/aop    
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd    
+	http://www.springframework.org/schema/tx    
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd    
+	http://www.springframework.org/schema/context    
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- 1:添加组件对注解的支持 -->
+	<context:component-scan base-package="cn.dmego" />
+	<!-- 2:c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/sada?useUnicode=true&amp;characterEncoding=utf8" />
+		<!-- <property name="jdbcUrl" value="jdbc:mysql://47.94.252.154:3306/sada?useUnicode=true&amp;characterEncoding=utf8" />  -->
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+		<!--连接池中保留的最小连接数。 -->
+		<property name="minPoolSize" value="5" />
+
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="30" />
+
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize" value="10" />
+
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="60" />
+
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="5" />
+
+		<!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements 属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0 -->
+		<property name="maxStatements" value="0" />
+
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="30" />
+
+		<!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false -->
+		<property name="breakAfterAcquireFailure" value="true" />
+	</bean>
+	<!-- 3:spring整合hibernate的核心 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 先加载连接池 -->
+		<property name="dataSource" ref="dataSource"/>
+	
+		<!-- 加载方言，加载可选 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- <prop key="hibernate.format_sql">true</prop> -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		
+		<!-- 引入映射的配置文件(自动加载 domain目录下的hibernate配置文件) -->
+		 <property name="mappingDirectoryLocations" value="classpath:cn/dmego/domain" ></property>
+		 <!-- <property name="mappingResources">
+			<list>
+				<value>cn/dmego/domain/User.hbm.xml</value>
+				<value>cn/dmego/domain/Dict.hbm.xml</value>
+			</list>
+		</property>   -->
+	</bean>
+		
+	<!--Shiro安全框架产生代理子类的方式： 使用cglib方式-->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<!-- 4:创建事务管理器 -->
+	<bean id="trManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 5:事务处理：注解，在Service层填写一个注解@Transcational -->
+	<tx:annotation-driven transaction-manager="trManager" />
+	
+	 <!--安全框架shiro配置-->
+     <import resource="classpath:applicationContext-shiro.xml"/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

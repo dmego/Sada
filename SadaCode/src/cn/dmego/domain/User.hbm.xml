@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.dmego.domain.User" table="User"> 
+		<id name="id" type="string" column="id">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" type="string" column="name"/>
+		<property name="nickName" type="string" column="nickName"/>
+		<property name="password" type="string" column="password"/>
+		<property name="salt" type="string" column="salt"/>
+		<property name="orgId" type="string" column="orgId"/>
+		<property name="sexId" type="string" column="sexId"/>
+		<property name="birthday" type="string" column="birthday"/>
+		<property name="email" type="string" column="email"/>
+		<property name="mobile" type="string" column="mobile"/>
+		<property name="userPic" type="string" column="userPic"/>
+		<property name="adminIs" type="string" column="adminIs"/>
+		<property name="remark" type="string" column="remark"/>
+		<property name="deleted" type="string" column="deleted"/>
+		<property name="createtime" type="string" column="createtime"/>
+		<property name="updatetime" type="string" column="updatetime"/>
+		
+		<!-- 一个用户对应多个资产 -->
+		<set name="assets" table="Asset" inverse="true" order-by="updateDate desc" cascade="delete">
+			<key>
+				<column name="userId"></column>
+			</key>
+			<one-to-many class="cn.dmego.domain.Asset"/>
+		</set> 
+
+		<set name="roles" table="UserRole">
+			<key>
+				<column name="userId"></column>
+			</key>
+			<many-to-many class="cn.dmego.domain.Role" column="roleId"></many-to-many>
+		</set>
+	</class>
+
+</hibernate-mapping>

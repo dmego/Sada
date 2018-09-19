@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Sada</display-name>
+	<!-- 自定义登录初始化过滤器，放置到struts2过滤器的前面 -->
+	<filter>
+		<filter-name>SystemLoginFilter</filter-name>
+		<filter-class>cn.dmego.filter.SystemLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SystemLoginFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 添加spring解决hibernate懒加载的问题， 过滤器 该过滤器一定要放置到struts2过滤器的前面 原理：延迟了Session的关闭时间，在页面上关闭 -->
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<!-- shiro的filter 一定要在Struts拦截器之前配置 -->
+	<!-- shiro过虑器，DelegatingFilterProxy通过代理模式将spring容器中的bean和filter关联起来 -->
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>shiroFilter</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- * struts2的核心过滤器 -->
+	<filter>
+		<filter-name>StrutsPrepareAndExecuteFilter</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>StrutsPrepareAndExecuteFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<!-- * 监听器，web容器启动spring -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<display-name></display-name>
+
+	<!-- 极验验证码Servlet配置 -->
+	<servlet>
+		<servlet-name>StartCaptchaServlet</servlet-name>
+		<servlet-class>cn.dmego.web.servlet.StartCaptchaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>VerifyLoginServlet</servlet-name>
+		<servlet-class>cn.dmego.web.servlet.VerifyLoginServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>VerifyLoginServlet</servlet-name>
+		<url-pattern>/gtValidate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StartCaptchaServlet</servlet-name>
+		<url-pattern>/gtRegister</url-pattern>
+	</servlet-mapping>
+	<!-- 文件上传 -->
+	<servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>cn.dmego.web.servlet.FileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/fileUploadServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 文件下载 -->
+	<servlet>
+		<servlet-name>FileDownloadServlet</servlet-name>
+		<servlet-class>cn.dmego.web.servlet.FileDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileDownloadServlet</servlet-name>
+		<url-pattern>/fileDownloadServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 鉴权文件上传 -->
+	<servlet>
+		<servlet-name>ValidateFileUploadServlet</servlet-name>
+		<servlet-class>cn.dmego.web.servlet.ValidateFileUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ValidateFileUploadServlet</servlet-name>
+		<url-pattern>/validateFileUploadServlet</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
