@@ -1,6 +1,8 @@
 # <div align="center"><img align="center" height="56" src="http://ovasw3yf9.bkt.clouddn.com/blog/180919/LgLja7H529.png?imageslim"></div>
 
-<p align="center">«Sada» 是第七届中国软件杯赛题 <a href="http://www.cnsoftbei.com/bencandy.php?fid=151&aid=1613">可信数字资产存储应用</a> 的参赛作品。</p>
+<p align="center">«Sada» 是第七届中国软件杯赛题 <a href="http://www.cnsoftbei.com/bencandy.php?fid=151&aid=1613">可信数字资产存储应用</a> 的参赛作品</p>
+
+<p align="center">由石家庄铁道大学 Genesis-Block 团队开发并维护</p>
 
 <p align="center">
   <a href="https://www.codacy.com/app/dmego/Sada?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dmego/Sada&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/d9884c5066fe4e818bc07a8caebd4a99" title="Project Grade"></a>
@@ -45,7 +47,7 @@ workplace 编码 UTF-8
 
 ![区块链管理](TestData/images/31.png)
 
--MD5值比对页面
+- MD5值比对页面
 
 ![区块链管理](TestData/images/11.png)
 
