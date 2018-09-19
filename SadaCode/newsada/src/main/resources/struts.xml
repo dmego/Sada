@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- ui主题，简单主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 修改struts2的后缀 改成.do -->
+	<constant name="struts.action.extension" value="do"></constant>
+	<!-- 改变struts2上传文件的大小 -->
+	<constant name="struts.multipart.maxSize" value="20097152"></constant>
+
+	<!-- 默认包 -->
+	<package name="sada" namespace="/*" extends="json-default">
+		<!-- 全局转发 -->
+	    <global-results>
+	    	<result name="close">/close.jsp</result>
+	    	<result name="errorMsg">/errorMsg.jsp</result>
+	    	<result name="index">/WEB-INF/page/menu/index.jsp</result>
+	    </global-results>
+	
+	
+		<!-- 数据字典管理 -->	
+		<action name="dictAction_*" class="dictAction" method="{1}">
+			<result name="home">/WEB-INF/page/system/dictIndex.jsp</result>			
+			<result name="jsonMsg" type="json"></result>
+			
+		</action>
+		
+		<!-- 系统日志管理 -->	
+		<action name="systemlogAction_*" class="systemlogAction" method="{1}">
+			<result name="home">/WEB-INF/page/system/systemLog.jsp</result>
+			<result name="edit">/WEB-INF/page/system/systemLog.jsp</result>
+		</action>
+		
+	
+		<!-- 系统登录 -->
+		<action name="menuAction_*" class="menuAction" method="{1}">
+			<result name="home">/WEB-INF/page/menu/dashboard.jsp</result>
+			<result name="control">/WEB-INF/page/menu/adminboard.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
+			<result name="login" >/login.jsp</result>
+			<result name="loginError">/WEB-INF/page/menu/login.jsp</result>
+			<result name="logout" type="redirect">/login.jsp</result>
+			<result name="jsonMsg" type="json"></result>
+		</action >
+		
+		<!-- 查询 -->	
+		<action name="queryAction_*" class="queryAction" method="{1}">
+			<!-- <result name="home">/WEB-INF/page/user/userList.jsp</result> -->
+			<result name="loadData" type="json"></result>
+		</action>
+		
+		<!-- 用户管理 -->	
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="home">/WEB-INF/page/sysuser/userList.jsp</result>
+			<!-- <result name="my">/WEB-INF/page/sysuser/userDetail.jsp</result> -->
+			<result name="my">/WEB-INF/page/sysuser/detail.jsp</result>
+			<result name="edit" >/WEB-INF/page/sysuser/userEdit.jsp</result>
+			<result name="avatar" >/WEB-INF/page/sysuser/upAvatar.jsp</result>
+			<result name="pagelist" >/WEB-INF/page/sysuser/userList.jsp</result>
+			<result name="userDetail">/WEB-INF/page/user/userDetail.jsp</result>
+			<result name="jsonMsg" type="json"></result>
+			<!-- 管理员管理 -->
+			<result name="adminHome">/WEB-INF/page/auth/adminList.jsp</result>
+			<result name="adminAdd">/WEB-INF/page/auth/adminAdd.jsp</result>
+		</action>
+		
+		
+		<!-- 角色管理 -->
+		<action name="roleAction_*" class="roleAction" method="{1}">
+			<result name="home">/WEB-INF/page/auth/roleList.jsp</result>
+			<result name="edit" >/WEB-INF/page/auth/roleEdit.jsp</result>
+			<result name="roleAdd">/WEB-INF/page/auth/roleAdd.jsp</result>
+			<result name="jsonMsg" type="json"></result>
+		</action>
+		
+		<!-- 功能权限管理 -->
+		<action name="authAction_*" class="authAction" method="{1}">
+			<result name="home">/WEB-INF/page/auth/authIndex.jsp</result>
+			<result name="iconSelect">/WEB-INF/page/icon/icon.jsp</result>
+			<result name="jsonMsg" type="json"></result>			
+		</action>
+		
+		
+		<!-- 资产管理 -->	
+		<action name="assetAction_*" class="assetAction" method="{1}">
+			<result name="core">/WEB-INF/page/core/coreList.jsp</result>	
+			<param name="path">/upload</param>
+			<result name="success" type="json"></result>
+			<result name="jsonMsg" type="json"></result>
+			<result name="downloadSuccess" type="stream">
+		        <param name="contentType">application/octet-stream</param>
+		        <param name="inputName">inputStream</param>
+		        <param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+		        <param name="bufferSize">4096</param>
+	        </result>
+			<result name="manage">/WEB-INF/page/asset/manage.jsp</result>
+			<result name="add">/WEB-INF/page/asset/addAsset.jsp</result>	
+			<!-- 资产鉴权 -->
+			<result name="auth">/WEB-INF/page/core/coreAuth.jsp</result>
+			<!-- <result name="compar">/WEB-INF/page/core/compar.jsp</result> -->		
+			<result name="assetValidate">/WEB-INF/page/asset/assetValidate.jsp</result>		
+			<result name="toCompareMd5">/WEB-INF/page/core/compar.jsp</result>		
+		</action>
+				
+		<!-- chain管理 -->	
+		<action name="chainAction_*" class="chainAction" method="{1}">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -201,22 +201,32 @@ echo "Updating anchor peers for org2..."
 updateAnchorPeers 2
 
 ## Install chaincode on Peer0/Org1 and Peer2/Org2
-# echo "Installing chaincode on org1/peer0..."
-# installChaincode 0
-# echo "Install chaincode on org2/peer2..."
-# installChaincode 2
+echo "Installing chaincode on org1/peer0..."
+installChaincode 0
+echo "Installing chaincode on org1/peer1..."
+installChaincode 1
+echo "Installing chaincode on org2/peer2..."
+installChaincode 2
+echo "Installing chaincode on org2/peer3..."
+installChaincode 3
 
 #Instantiate chaincode on Peer2/Org2
-# echo "Instantiating chaincode on org1/peer0..."
-# instantiateChaincode 0
+echo "Instantiating chaincode on org1/peer0..."
+instantiateChaincode 0
+echo "Instantiating chaincode on org1/peer1..."
+instantiateChaincode 1
+# echo "Instantiating chaincode on org2/peer2..."
+# instantiateChaincode 2
+# echo "Instantiating chaincode on org2/peer3..."
+# instantiateChaincode 3
 
 #Invoke on chaincode on Peer0/Org1
-# echo "Sending invoke transaction on org1/peer0..."
-# chaincodeInvoke 0
+echo "Sending invoke transaction on org1/peer0..."
+chaincodeInvoke 0
 
 #Query on chaincode on Peer0/Org1
-# echo "Querying chaincode on org1/peer0..."
-# chaincodeQuery 0 
+#echo "Querying chaincode on org1/peer0..."
+#chaincodeQuery 1
 
 ## Install chaincode on Peer3/Org2
 # echo "Installing chaincode on org2/peer3..."

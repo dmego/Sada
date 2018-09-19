@@ -1,0 +1,142 @@
+[{
+    "id": "aa",
+    "pid": "0",
+	"name": "个人中心",
+	"url":"todo.jsp",
+    "icon": "fa fa-user-md",
+	"py": "grzx",
+	"pingyin": "gerenzhongxin",
+	"isMenu": true,
+	"isParent": false	 
+}, {
+     "id": "ab",
+    "pid": "0",
+    "name": "我的资产",
+	"url":"assetAction_manage.do",
+    "icon": "fa fa-user",
+	"py": "wdzc",
+	"pingyin": "wodezhichang",
+	"isParent": false
+}, {
+    "id": "ac",
+    "pid": "0",
+    "name": "资产鉴权",
+	"url":"todo.jsp",
+    "icon": "fa fa-user",
+	"py": "jqzx",
+	"pingyin": "yonhuguanli",
+	"isParent": false
+}, {
+    "id": "ad",
+    "pid": "0",
+    "name": "用户管理",
+	"url":"userAction_home.do",
+    "icon": "fa fa-user",
+	"py": "yhgl",
+	"pingyin": "yonhuguanli",
+	"isParent": false
+}, 
+{
+    "id": "ae",
+    "pid": "0",
+    "name": "资产管理",
+    "url":"",
+    "icon": "fa fa-id-card",
+	"py": "zcgl",
+	"pingyin": "zichanguanli",
+	"isParent": true,
+	"nodes":[
+		{
+			"id":"af",
+			"pid":"ad",
+			"name":"资产管理",
+			"url":"todo.jsp",
+			"icon": "fa fa-id-card",
+			"py": "zcgl",
+			"pingyin": "zichanguanli",
+			"isParent": false
+		},{
+			"id":"ag",
+			"pid":"ad",
+			"name":"资产鉴权",
+			"url":"todo.jsp",
+			"icon": "fa fa-search",
+			"py": "zcjq",
+			"pingyin": "zichanjianquan",
+			"isParent": false
+		}
+	]
+}, {
+    "id": "ah",
+    "pid": "0",
+    "name": "权限管理",
+    "url":"",
+	"icon": "fa fa-group",
+	"py": "qxgl",
+	"pingyin": "quanxianguanli",
+	"isParent": true,
+	"nodes":[
+		{
+			"id":"ai",
+			"pid":"ah",
+			"name":"管理员管理",
+			"url":"userAction_adminHome.do",
+			"icon": "fa fa-user",
+			"py": "glygl",
+			"pingyin": "guanliyuanguanli",
+			"isParent": false
+		},{ 
+			"id":"aj",
+			"pid":"ah",
+			"name":"角色管理",
+			"url":"roleAction_home.do",
+			"icon": "fa fa-group",
+			"py": "jsz",
+			"pingyin": "jiaosezu",
+			"isParent": false
+		},{
+			"id":"ak",
+			"pid":"ah",
+			"name":"功能管理",
+			"url":"authAction_home.do",
+			"icon": "fa fa-bars",
+			"py": "qxgl",
+			"pingyin": "quanxianguanli",
+			"isParent": false
+		}
+	]
+},
+ {
+    "id": "al",
+    "pid": "0",
+    "name": "系统管理",
+    "url":"",
+	"icon": "fa fa-cogs",
+	"py": "xtgl",
+	"pingyin": "xitongguanli",
+	"isParent": true,
+	"nodes":[
+		{
+			"id":"am",
+			"pid":"al",
+			"name":"数据字典",
+			"url":"dictAction_home.do",
+			"icon": "fa fa-cog",
+			"py": "sjzd",
+			"pingyin": "shujuzidian",
+			"isParent": false
+		},{
+			"id":"an",
+			"pid":"al",
+			"name":"系统日志",
+			"url":"todo.jsp",
+			"icon": "fa fa-list-alt",
+			"py": "xtrz",
+			"pingyin": "xitongrzhi",
+			"isParent": false
+		}
+	]
+}]
+
+
+

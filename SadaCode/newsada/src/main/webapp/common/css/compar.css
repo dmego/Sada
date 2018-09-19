@@ -1,0 +1,532 @@
+.overlay {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+  
+  .overlay .overlay-figure,
+  .overlay>:first-child {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0
+  }
+  
+  .overlay-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    color: #fff
+  }
+  
+  .overlay-panel a:not([class]) {
+    color: inherit;
+    text-decoration: underline
+  }
+  
+  .overlay-panel>:last-child {
+    margin-bottom: 0
+  }
+  
+  .overlay-panel h1,
+  .overlay-panel h2,
+  .overlay-panel h3,
+  .overlay-panel h4,
+  .overlay-panel h5,
+  .overlay-panel h6 {
+    color: inherit
+  }
+  
+  .overlay-hover:not(:hover) .overlay-panel:not(.overlay-background-fixed) {
+    opacity: 0
+  }
+  
+  .overlay-background {
+    background: rgba(0, 0, 0, .5)
+  }
+  
+  .overlay-image {
+    width: 100%;
+    max-width: 100%;
+    padding: 0
+  }
+  
+  .overlay-shade {
+    background: rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0)), color-stop(90%, rgba(255, 255, 255, .87)), to(#fff)) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, .87) 90%, #fff 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) -o-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, .87) 90%, #fff 100%) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, .87) 90%, #fff 100%) repeat scroll 0 0
+  }
+  
+  .overlay-top {
+    bottom: auto
+  }
+  
+  .overlay-bottom {
+    top: auto
+  }
+  
+  .overlay-left {
+    right: auto
+  }
+  
+  .overlay-right {
+    left: auto
+  }
+  
+  .overlay-icon {
+    font-size: 0;
+    text-align: center
+  }
+  
+  .overlay-icon:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: ""
+  }
+  
+  .overlay-icon .icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 32px;
+    line-height: 1;
+    color: #fff;
+    text-decoration: none
+  }
+  
+  .overlay-anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0
+  }
+  
+  .overlay-blur,
+  .overlay-fade,
+  .overlay-grayscale,
+  .overlay-scale,
+  .overlay-spin,
+  [class*=overlay-slide] {
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity
+  }
+  
+  .overlay-fade {
+    opacity: .7
+  }
+  
+  .overlay-hover:hover .overlay-fade {
+    opacity: 1
+  }
+  
+  .overlay-scale {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+  }
+  
+  .overlay-hover:hover .overlay-scale {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1)
+  }
+  
+  .overlay-spin {
+    -webkit-transform: scale(1) rotate(0);
+    -ms-transform: scale(1) rotate(0);
+    -o-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0)
+  }
+  
+  .overlay-hover:hover .overlay-spin {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    -ms-transform: scale(1.1) rotate(3deg);
+    -o-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg)
+  }
+  
+  .overlay-grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%)
+  }
+  
+  .overlay-hover:hover .overlay-grayscale {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0)
+  }
+  
+  [class*=overlay-slide] {
+    opacity: 0
+  }
+  
+  .overlay-slide-top {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%)
+  }
+  
+  .overlay-slide-bottom {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%)
+  }
+  
+  .overlay-slide-left {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%)
+  }
+  
+  .overlay-slide-right {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%)
+  }
+  
+  .overlay-hover:hover [class*=overlay-slide] {
+    opacity: 1;
+    -webkit-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0)
+  }
+  .cover {
+    overflow: hidden
+  }
+  
+  .cover-background {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover
+  }
+  
+  .cover-image {
+    width: 100%
+  }
+  
+  .cover-quote {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    border-left: none
+  }
+  
+  .cover-quote:after,
+  .cover-quote:before {
+    position: absolute;
+    top: -20px;
+    font-size: 4em
+  }
+  
+  .cover-quote:before {
+    left: 0;
+    content: open-quote
+  }
+  
+  .cover-quote:after {
+    right: 0;
+    visibility: hidden;
+    content: close-quote
+  }
+  
+  .cover-quote.blockquote-reverse {
+    padding-right: 35px;
+    padding-left: 20px;
+    border-right: none
+  }
+  
+  .cover-quote.blockquote-reverse:before {
+    right: 0;
+    left: auto;
+    content: close-quote
+  }
+  
+  .cover-gallery .carousel-inner img {
+    width: 100%
+  }
+  
+  .cover-iframe {
+    width: 100%;
+    border: 0 none
+  }
+  .timeline-content>.widget {
+    margin: 0
+  }
+  
+  .widget {
+    position: relative;
+    margin-bottom: 24px;
+    background-color: #fff
+  }
+  
+  .widget .cover {
+    width: 100%
+  }
+  
+  [class*=blocks-]>li>.widget {
+    margin-bottom: 0
+  }
+  
+  .widget-shadow {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+  }
+  
+  .widget {
+    border-radius: 3px
+  }
+  
+  .widget .widget-header {
+    border-radius: 3px 3px 0 0
+  }
+  
+  .widget .widget-header:last-child {
+    border-radius: inherit
+  }
+  
+  .widget .widget-body:last-child {
+    border-radius: 0 0 3px 3px
+  }
+  
+  .widget .widget-body:last-child .widget-body-footer {
+    border-radius: 0 0 3px 3px
+  }
+  
+  .widget .widget-footer {
+    border-radius: 0 0 3px 3px
+  }
+  
+  .widget .widget-footer:first-child {
+    border-radiu: inherit
+  }
+  
+  .widget-body {
+    position: relative;
+    padding: 30px 25px
+  }
+  
+  .widget-body-footer {
+    margin-top: 30px
+  }
+  
+  .widget-body-footer:after,
+  .widget-body-footer:before {
+    display: table;
+    content: " "
+  }
+  
+  .widget-body-footer:after {
+    clear: both
+  }
+  
+  .widget-content ul {
+    padding: 0;
+    margin: 0
+  }
+  
+  .widget-content li {
+    list-style: none
+  }
+  
+  .widget-title {
+    margin-top: 0;
+    color: #37474f;
+    text-transform: capitalize
+  }
+  
+  div.widget-title {
+    font-size: 22px
+  }
+  
+  .overlay-panel .widget-title {
+    color: #fff
+  }
+  
+  .widget>.widget-title {
+    padding: 12px 20px
+  }
+  
+  .widget-metas {
+    font-size: 12px;
+    color: #a3afb7
+  }
+  
+  .widget-metas.type-link>a {
+    position: relative;
+    display: inline-block;
+    padding: 3px 5px;
+    color: #a3afb7
+  }
+  
+  .widget-metas.type-link>a:first-child {
+    padding-left: 0
+  }
+  
+  .widget-metas.type-link>a:hover {
+    color: #ccd5db
+  }
+  
+  .widget-metas.type-link>a+a:before {
+    position: absolute;
+    top: 10px;
+    left: -2px;
+    width: 3px;
+    height: 3px;
+    content: "";
+    background-color: #a3afb7;
+    border-radius: 50%
+  }
+  
+  .overlay-background .widget-time {
+    color: #fff;
+    opacity: .8
+  }
+  
+  .widget-category {
+    font-size: 16px
+  }
+  
+  .widget-actions {
+    margin-top: 10px;
+    text-align: right
+  }
+  
+  .widget-actions a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #a3afb7;
+    vertical-align: middle
+  }
+  
+  .widget-actions a .icon,
+  .widget-actions a.icon {
+    text-decoration: none
+  }
+  
+  .widget-actions a .icon+span,
+  .widget-actions a.icon+span {
+    margin-left: 2px
+  }
+  
+  .widget-actions a.active,
+  .widget-actions a:focus,
+  .widget-actions a:hover {
+    color: #ccd5db;
+    text-decoration: none
+  }
+  
+  .widget-actions a:last-child {
+    margin-right: 0
+  }
+  
+  .widget-actions-sidebar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px
+  }
+  
+  .widget-actions-sidebar a {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    margin-right: 0;
+    text-align: center;
+    border-right: 1px solid #e4eaec
+  }
+  
+  .widget-actions-sidebar a:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: ""
+  }
+  
+  .widget-actions-sidebar a+a {
+    border-top: 1px solid #e4eaec
+  }
+  
+  .widget-actions-sidebar+.widget-content {
+    margin-left: 80px
+  }
+  
+  .widget-watermark {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    line-height: 1;
+    opacity: .1
+  }
+  
+  .widget-watermark.darker {
+    color: #000
+  }
+  
+  .widget-watermark.lighter {
+    color: #fff
+  }
+  
+  .widget-divider:after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 15px auto;
+    content: "";
+    background-color: #fff
+  }
+  
+  .widget-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%
+  }
+  
+  .widget-left+.widget-body {
+    width: 60%;
+    margin-left: 40%
+  }
+  
+  @media (max-width:767px) {
+    .widget-left {
+        position: relative;
+        width: 100%;
+        height: 320px
+    }
+    .widget-left+.widget-body {
+        width: 100%;
+        margin-left: 0
+    }
+  }
+  
+  
+  

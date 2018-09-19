@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.dmego.domain.Asset" table="asset">
+		<id name="id" type="string" column="id">
+			<generator class="uuid" />
+		</id>
+		<property name="name" />
+		<property name="fileName" />
+		<property name="filePath" />
+		<property name="fileType" />
+		<property name="tag" />
+		<property name="assetType" />
+		<property name="commonType" />
+		<property name="keyInfo" />
+		<property name="createDate" />
+		<property name="updateDate" />
+		<property name="assetMd5" />
+		
+		
+		<!-- 用户外键，暂时不配置 -->
+		<many-to-one name="user" column="userId" class="cn.dmego.domain.User"  >
+		</many-to-one>
+	</class>
+</hibernate-mapping>    

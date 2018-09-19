@@ -1,0 +1,434 @@
+{
+    "code": 1,
+    "msg": "",
+    "data": [{
+            "id": 11180,
+            "parent": "#",
+            "text": "控制台",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11256,
+            "parent": "#",
+            "text": "个人中心",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+        {
+            "id": 11111,
+            "parent": "#",
+            "text": "资产管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+        {
+            "id": 11112,
+            "parent": 11111,
+            "text": "资产鉴权",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11113,
+            "parent": 11112,
+            "text": "鉴权",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+        {
+            "id": 11192,
+            "parent": 11111,
+            "text": "资产管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11193,
+            "parent": 11192,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11194,
+            "parent": 11192,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11195,
+            "parent": 11192,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11196,
+            "parent": 11192,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11197,
+            "parent": 11192,
+            "text": "批量更新",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+
+        {
+            "id": 11114,
+            "parent": "#",
+            "text": "权限管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11291,
+            "parent": 11114,
+            "text": "管理员管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11292,
+            "parent": 11291,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11293,
+            "parent": 11291,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11294,
+            "parent": 11291,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11295,
+            "parent": 11291,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11297,
+            "parent": 11114,
+            "text": "角色管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11298,
+            "parent": 11297,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11299,
+            "parent": 11297,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11300,
+            "parent": 11297,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11301,
+            "parent": 11297,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11303,
+            "parent": 11114,
+            "text": "功能管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11304,
+            "parent": 11303,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11305,
+            "parent": 11303,
+            "text": "修改",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11306,
+            "parent": 11303,
+            "text": "同步",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11307,
+            "parent": 11303,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11308,
+            "parent": 11303,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+        {
+            "id": 11115,
+            "parent": "#",
+            "text": "系统管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11310,
+            "parent": 11115,
+            "text": "数据字典",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11312,
+            "parent": 11310,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11313,
+            "parent": 11310,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11314,
+            "parent": 11310,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11315,
+            "parent": 11310,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11316,
+            "parent": 11310,
+            "text": "批量更新",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11317,
+            "parent": 11115,
+            "text": "系统日志",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11318,
+            "parent": 11317,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11319,
+            "parent": 11317,
+            "text": "详情",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11320,
+            "parent": 11317,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11321,
+            "parent": 11317,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11322,
+            "parent": 11317,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+
+
+        {
+            "id": 11218,
+            "parent": "#",
+            "text": "我的资产",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11226,
+            "parent": 11218,
+            "text": "增加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11238,
+            "parent": 11218,
+            "text": "修改",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11244,
+            "parent": 11218,
+            "text": "查询",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11250,
+            "parent": 11218,
+            "text": "鉴权",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11186,
+            "parent": "#",
+            "text": "用户管理",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        },
+        {
+            "id": 11187,
+            "parent": 11186,
+            "text": "查看",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11188,
+            "parent": 11186,
+            "text": "添加",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11189,
+            "parent": 11186,
+            "text": "编辑",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11190,
+            "parent": 11186,
+            "text": "删除",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }, {
+            "id": 11191,
+            "parent": 11186,
+            "text": "批量更新",
+            "type": "menu",
+            "state": {
+                "selected": false
+            }
+        }
+    ],
+    "url": "#",
+    "wait": 3
+}
