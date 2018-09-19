@@ -1,0 +1,25 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+  
+  couchdb1org2:
+    container_name: couchdb1org2
+    image: hyperledger/fabric-couchdb
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    #volumes:
+    #  - ./chainData/couchdb/couchdb1org2:/opt/couchdb/data
+    ports:
+      - "5984:5984"
+
+  peer1.org2.example.com:
+    environment:
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1org2:5984
+    depends_on:
+      - couchdb1org2

@@ -1,0 +1,77 @@
+﻿一：Fabric 多机部署配置文档
+	1 Orderer + 4 peer + 4 couchDB + 2 CA + 1 CLI
+具体部署情况：
+192.168.60.130：
+	|--orderer.example.com
+	
+192.168.60.128：
+	|--peer0.org1.example.com
+	|--ca0.org1.example.com
+	|--couchdb0.org1.example.com
+
+192.168.60.131：
+	|--peer1.org1.example.com
+	|--couchdb1.org1.example.com
+
+192.168.60.132：
+	|--peer0.org2.example.com
+	|--ca0.org2.example.com
+	|--couchdb0.org2.example.com
+
+192.168.60.133：
+	|--peer1.org2.example.com
+	|--couchdb1.org2.example.com
+	
+		
+二.原始配置启动顺序：
+ orderer 排序服务启动
+	docker-compose -f docker-compose-orderer.yaml up -d
+	分别在每台机器上启动，可以使用：
+	docker logs orderer.example.com 查看日志 
+
+ peer 组织节点启动
+	docker-compose -f docker-compose-peer.yaml up -d
+	分别在每台机器上启动，可以使用：
+	docker logs peer0(1).org1(2).example.com 查看日志 
+
+ ca服务器节点启动
+	docker-compose -f docker-compose-ca.yaml up -d
+	分别在需要的机器上启动，可以使用：
+	docker logs ca0(1).org1(2).example.com 查看日志 
+	
+	
+三.使用脚本进行启动
+	0.进入项目目录
+	 cd go/src/github.com/hyperledger/sada/
+
+	1.先赋权限
+		chmod u+x network.sh
+		
+	2.不使用 couchDB 启动网络
+		./network.sh up 
+		
+	3.使用 couchDB 启动网络	
+		./network.sh up cdb 
+		
+	5.进入peer0的cli容器内，执行创建通道，加入通道，（安装链码，实例化链码，查询，进行交易等操作由sdk完成）
+		docker exec -it cli bash
+		bash scripts/script.sh mychannel
+		
+	
+	6.查看couchDB数据库，如：
+		http://192.168.33.135:5984/_utils/
+		
+	7.关闭网络
+		./network.sh down mychannel
+
+	8.清理网络
+		docker network prune -f
+		
+四.若遇到问题，可以查看日志，如：
+	docker logs -f peer0.org1.example.com
+	
+五.Docker 环境清理
+docker rm -rf $(docker ps -aq)
+docker network prune -f 
+docker volume prune -f
+
