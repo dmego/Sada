@@ -1,4 +1,4 @@
-# <div align="center"><img align="center" height="56" src="http://ovasw3yf9.bkt.clouddn.com/blog/180919/LgLja7H529.png?imageslim"></div>
+# <div align="center"><img align="center" height="56" src="SadaCode/newsada/src/main/webapp/common/images/logo.svg"></div>
 
 <p align="center">«Sada» 是第七届中国软件杯赛题 <a href="http://www.cnsoftbei.com/bencandy.php?fid=151&aid=1613">可信数字资产存储应用</a> 的参赛作品</p>
 
